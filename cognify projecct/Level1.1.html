@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Features</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #colorButton {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        #greetingButton {
+            background-color: #28A745;
+            color: #fff;
+        }
+
+        .calculator {
+            margin-top: 20px;
+        }
+
+        .calculator input {
+            width: 100px;
+            padding: 5px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .calculator button {
+            background-color: #FFC107;
+            color: #000;
+        }
+
+        .calculator p {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JavaScript Features</h1>
+
+    <h2>Change Button Color</h2>
+    <button id="colorButton" onclick="changeButtonColor()">Click Me</button>
+
+ 
+    <h2>Greeting Alert</h2>
+    <button id="greetingButton" onclick="showGreeting()">Show Greeting</button>
+
+  
+    <h2>Basic Calculator</h2>
+    <div class="calculator">
+        <input type="number" id="num1" placeholder="Number 1">
+        <input type="number" id="num2" placeholder="Number 2">
+        <button onclick="calculateSum()">Add</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+       
+        function changeButtonColor() {
+            const button = document.getElementById('colorButton');
+            const newColor = button.style.backgroundColor === 'red' ? '#007BFF' : 'red';
+            button.style.backgroundColor = newColor;
+        }
+
+
+        function showGreeting() {
+            const now = new Date();
+            const hour = now.getHours();
+            let greeting;
+
+            if (hour < 12) {
+                greeting = 'Good Morning!';
+            } else if (hour < 18) {
+                greeting = 'Good Afternoon!';
+            } else {
+                greeting = 'Good Evening!';
+            }
+
+            alert(greeting);
+        }
+
+    
+        function calculateSum() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById('result').textContent = 'Please enter valid numbers.';
+            } else {
+                const sum = num1 + num2;
+                document.getElementById('result').textContent = `The sum is: ${sum}`;
+            }
+        }
+    </script>
+</body>
+
+</html>
